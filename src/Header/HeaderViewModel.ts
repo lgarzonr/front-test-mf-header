@@ -1,7 +1,5 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import "./HeaderView.scss";
-import { Avatar, TextField } from "@mui/material";
-import { useSearchParams } from "react-router-dom";
 
 const useHeaderViewModel = () => {
   const menuItems = [
