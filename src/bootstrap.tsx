@@ -1,9 +1,10 @@
 import React from "react";
 import { createRoot, Container } from "react-dom/client";
+import { HeaderView } from "./Header/HeaderView";
 
-const mount = (rootElement: Container) => {
+const mount = (rootElement: Container, navigate: () => unknown) => {
   const root = createRoot(rootElement);
-  root.render(<h1>hola header mf</h1>);
+  root.render(<HeaderView navigate={navigate} />);
 };
 
 export { mount };
