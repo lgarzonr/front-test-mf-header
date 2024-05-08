@@ -2,7 +2,9 @@ import React from "react";
 import "./HeaderView.scss";
 import { Avatar } from "@mui/material";
 import { useHeaderViewModel } from "./HeaderViewModel";
-import { SearchBar } from "./Components/SearchBar/SearchBar";
+import { SearchBar } from "../components/SearchBar/SearchBar";
+import Menu from "../components/Menu/Menu";
+import UserMenu from "../components/UserMenu/UserMenu";
 
 const HeaderView = ({ navigate }: any) => {
   const { menuItems, userConfig, searchValue, setSearchValue, onSearchClick } =
@@ -20,25 +22,13 @@ const HeaderView = ({ navigate }: any) => {
           />
         </div>
         <div className="meli-header__menu">
-          {menuItems.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
+          <Menu menuItems={menuItems} />
         </div>
         <div className="meli-header__user-menu">
-          <Avatar
-            sx={{
-              bgcolor: "white",
-              color: "black",
-              width: 24,
-              height: 24,
-              fontSize: 12,
-            }}
-          >
-            {userConfig.initials}
-          </Avatar>
-          {userConfig.menuItems.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
+          <UserMenu
+            initials={userConfig.initials}
+            menuItems={userConfig.menuItems}
+          />
         </div>
       </div>
     </header>
